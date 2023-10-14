@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import img from "./DSC_0664.png"
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -20,7 +21,7 @@ const About = () => {
             className="min-h-[330px] overflow-hidden  rounded-md"
           >
             <img
-              src="https://scontent.fdac157-1.fna.fbcdn.net/v/t39.30808-6/327449030_1501291127031493_3897715175473830632_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=1b51e3&_nc_eui2=AeFNdFGOgBv_FsDT22BobGcfPiGrL5xUcME-IasvnFRwwf-Feq2ziA3F7v1oYMlgC3Gob47zHA3M-zRTtmF9OlCe&_nc_ohc=LQMFph4NzWcAX-hY8fh&_nc_ht=scontent.fdac157-1.fna&oh=00_AfCMDfswePH3wq6YZdFyu_HTUJxf6KUMANCeK36nKmn97A&oe=65270588"
+              src={img}
               alt=""
             />
           </motion.div>

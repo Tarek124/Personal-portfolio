@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Epilogue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
 * {
   font-family: "Epilogue", sans-serif;
 }
@@ -13,7 +14,6 @@
   transition: 0.3s;
 }
 .logoName {
-  font-family: "Jost", sans-serif;
   font-size: 24px;
   margin-top: 2px;
 }

@@ -6,16 +6,19 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <div className="Version1 2xl:mx-[12rem] mx-2 flex  px-6 py-[42px] justify-center items-center gap-[68px] flex-col md:flex-row">
+    <div className="Version1 2xl:mx-[12rem] mx-2 flex  sm:px-6 py-[42px] justify-center items-center gap-[68px] flex-col xl:flex-row">
       <div className="HeaderContent grow shrink basis-0 flex-col justify-start items-start gap-12 inline-flex">
-        <div className="TitleSubtitle self-stretch h-[202px] flex-col justify-start items-start gap-6 flex">
-          <div className="BrandingImageMaking self-stretch text-zinc-800 text-xl font-semibold font-['Epilogue'] leading-[30px]">
+        <div className="TitleSubtitle self-stretch h-[202px] flex-col justify-start items-start sm:gap-0 gap-6 flex">
+          <div className="w-[55%] self-stretch text-zinc-800 text-xl font-semibold font-['Epilogue'] leading-[30px]">
             Front-End Developer{" "}
           </div>
-          <div className="VisualDesigner self-stretch bg-gradient-to-r from-[#009379] to-orange-500 text-transparent text-[68px] bg-clip-text font-semibold font-['Epilogue']">
+          
+            <h1 className="md:h-[110px]  flex items-center font-['Staatliches'] sans-serif; VisualDesigner self-stretch text-[60px] text-[#222222] sm:text-[110px] font-semibold ">
             Hi, I'm Tarek
-          </div>
-          <div className="ThisIsATemplateFigmaFileTurnedIntoCodeUsingAnimaLearnMoreAtAnimaappCom self-stretch text-zinc-800 text-[17px] font-normal font-['Epilogue'] leading-[27px]">
+          </h1>
+         
+          
+          <div className="md:flex md:justify-end md:w-[52%] self-stretch text-zinc-800 text-[17px] font-normal font-['Epilogue'] leading-[27px]">
             From Feni, Bangldesh
           </div>
         </div>

@@ -15,18 +15,11 @@ const Navigation = () => {
     document.addEventListener("mousedown", handleClickOutside);
   }, [menuRef]);
 
-  const img =
-    "https://scontent.fdac157-1.fna.fbcdn.net/v/t39.30808-6/382809405_841490124361424_5209369986499188296_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeGBK6R40jl7USEeqP5WDoPbBLjCyyMCBp4EuMLLIwIGnpiO1Yc6jjeTXAVx0KCNFunbRX-l8JJYnSBRztvLTYjd&_nc_ohc=o7rYfbSaMDwAX-uoCgo&_nc_ht=scontent.fdac157-1.fna&oh=00_AfD9-qVigfgQJJmM6RkXoGBjJVhzXtk3GVBzQd4kXbdi6Q&oe=652769DC";
-
   return (
     <motion.div className="2xl:mx-[12rem] mx-2 flex justify-between items-center py-2 ">
       <div className="flex items-center">
-        <Link to="/">
-          {" "}
-          <img className="w-12 cursor-pointer rounded-full" src={img} alt="" />
-        </Link>
-        <h1 className="cursor-pointer p-2 logoName">
-          <Link to="/">Tarek</Link>
+        <h1 className="cursor-pointer p-2 font-semibold logoName font-['Staatliches']">
+          <Link to="/">T<span className="text-[#8c41f5] mx-[0.4px]">A</span>REK</Link>
         </h1>
       </div>
       <ul className="hidden md:flex gap-4">
