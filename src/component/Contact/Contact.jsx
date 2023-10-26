@@ -2,7 +2,7 @@
 
 const Contact = () => {
   return (
-    <section className="block">
+    <section className="block" id="contact">
       <div className="py-16 md:py-24 lg:py-32">
         <div className="mx-auto  w-full max-w-3xl px-5 md:px-10">
           <div className="text-center">

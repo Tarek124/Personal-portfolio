@@ -1,11 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 const Review = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
   return (
-    <div className="bg-[#020d24] text-white">
+    <div id="work" className="bg-[#020d24] text-white">
       <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
         <div className="flex flex-col items-center">
           <div className="mb-8 max-w-[800px] text-center md:mb-12 lg:mb-16">
@@ -18,12 +14,8 @@ const Review = () => {
               </p>
             </div>
           </div>
-          <div ref={ref} className="mb-12 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mb-16 md:grid-cols-3 lg:mb-20">
-            <div  style={{
-              transform: isInView ? "none" : "translateY(-200px)",
-              opacity: isInView ? 1 : 0,
-              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-            }} className="flex w-full flex-col gap-4 rounded-xl bg-[#07132d] px-4 py-8 text-white md:p-8">
+          <div  className="mb-12 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mb-16 md:grid-cols-3 lg:mb-20">
+            <div  className="flex w-full flex-col gap-4 rounded-xl bg-[#07132d] px-4 py-8 text-white md:p-8">
               <div className="flex w-full flex-row items-center justify-between">
                 <div className="flex items-center">
                   <img
@@ -131,11 +123,7 @@ const Review = () => {
                 </div>
               </div>
             </div>
-            <div  style={{
-              transform: isInView ? "none" : "translateY(-200px)",
-              opacity: isInView ? 1 : 0,
-              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-            }} className="flex w-full flex-col gap-4 rounded-xl bg-[#07132d] px-4 py-8 text-white md:p-8">
+            <div className="flex w-full flex-col gap-4 rounded-xl bg-[#07132d] px-4 py-8 text-white md:p-8">
               <div className="flex w-full flex-row items-center justify-between">
                 <div className="flex items-center">
                   <img
@@ -243,11 +231,7 @@ const Review = () => {
                 </div>
               </div>
             </div>
-            <div  style={{
-              transform: isInView ? "none" : "translateY(-200px)",
-              opacity: isInView ? 1 : 0,
-              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-            }} className="flex w-full flex-col gap-4 rounded-xl bg-[#07132d] px-4 py-8 text-white md:p-8">
+            <div className="flex w-full flex-col gap-4 rounded-xl bg-[#07132d] px-4 py-8 text-white md:p-8">
               <div className="flex w-full flex-row items-center justify-between">
                 <div className="flex items-center">
                   <img

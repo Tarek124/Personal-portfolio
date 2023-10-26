@@ -1,10 +1,16 @@
 import "./navigation.css";
 import { motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useState, useEffect, useContext } from "react";
+import { Link } from "react-scroll";
+import { UserCondition } from "../../App";
+import ShopNav from "./ShopNav/ShopNav";
+
 const Navigation = () => {
   const [mobileMenu, setMobilemenu] = useState(false);
   const menuRef = useRef();
+  const user = useContext(UserCondition);
+  const condition = user[0];
+  // console.log(condition);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -16,26 +22,36 @@ const Navigation = () => {
   }, [menuRef]);
 
   return (
-    <motion.div className="2xl:mx-[12rem] mx-2 flex justify-between items-center py-2 ">
+
+    <div className="2xl:mx-[12rem] mx-2 flex justify-between items-center py-2 ">
       <div className="flex items-center">
         <h1 className="cursor-pointer p-2 font-semibold logoName font-['Staatliches']">
-          <Link to="/">T<span className="text-[#8c41f5] mx-[0.4px]">A</span>REK</Link>
+          <Link to="/" spy={true} smooth={true} offset={50} duration={500}>
+            T<span className="text-[#8c41f5] mx-[0.4px]">A</span>REK
+          </Link>
         </h1>
       </div>
-      <ul className="hidden md:flex gap-4">
-        <Link to="/" className="listItem">
-          Home
-        </Link>
-        <Link to="about" className="listItem">
-          About
-        </Link>
-        <Link to="work" className="listItem">
-          Review
-        </Link>
-        <Link to="contact" className="listItem">
-          Contact
-        </Link>
-      </ul>
+      {condition ? 
+           <ShopNav></ShopNav>
+          : 
+          <ul className="hidden md:flex gap-4">
+          <Link to="home" spy={true} smooth={true} offset={50} duration={500} className="listItem">
+            Home
+          </Link>
+          <Link to="about" spy={true} smooth={true} offset={50} duration={500} className="listItem">
+           About
+          </Link>
+          <Link to="work" spy={true} smooth={true} offset={50} duration={500} className="listItem">
+           Work
+          </Link>
+          <Link to="contact" spy={true} smooth={true} offset={50} duration={500} className="listItem">
+            Contact
+          </Link>
+        </ul>/* {condition ? "Order" : "Home"} */}
+
+
+
+
       {/* Hamburger icon  */}
       {mobileMenu === false && (
         <div
@@ -61,28 +77,44 @@ const Navigation = () => {
           }}
           ref={menuRef}
           onBlur={() => setMobilemenu(!mobileMenu)}
-          className="z-50 h-[100%] bg-gradient-to-r from-purple-500 to-pink-500 p-6 w-[40%] fixed top-0 right-0"
+          className="z-50 h-[100%] bg-white text-[#0f0f0f] p-6 w-[40%] fixed top-0 right-2"
         >
           <ul className="my-6 flex flex-col text-[20px]">
-            <Link to="/" className="text-white my-4 hover:text-[#ffffffc9]">
-              Home
-            </Link>
-            <Link to="about" className="text-white my-4 hover:text-[#ffffffc9]">
-              About
-            </Link>
-            <Link to="work" className="text-white my-4 hover:text-[#ffffffc9]">
-              Review
+            <Link
+              to={condition ? "order" : "home"} spy={true} smooth={true} offset={50} duration={500}
+              className=" my-4 hover:text-[#272727]"
+            >
+              {condition ? "Order" : "Home"}
             </Link>
             <Link
-              to="contact"
-              className="text-white my-4 hover:text-[#ffffffc9]"
+              to={condition ? "inventory" : "about"} spy={true} smooth={true} offset={50} duration={500}
+              className=" my-4 hover:text-[#272727]"
+            >
+              {condition ? "Inventory" : "About"}
+            </Link>
+            <Link
+              to={condition ? "cart" : "work"} spy={true} smooth={true} offset={50} duration={500}
+              className=" my-4 hover:text-[#272727]"
+            >
+              {condition ? (
+                <div className="flex items-center">
+                  <h1>Cart</h1>
+                  {/* <img className="w-4 p-x1" src={img} alt="" /> */}
+                </div>
+              ) : (
+                "Work"
+              )}
+            </Link>
+            <Link
+              to="contact" spy={true} smooth={true} offset={50} duration={500}
+              className="my-4 hover:text-[#272727]"
             >
               Contact
             </Link>
           </ul>
         </motion.div>
       )}
-    </motion.div>
+    </div>
   );
 };
 

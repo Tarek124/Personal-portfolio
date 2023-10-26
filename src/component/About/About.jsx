@@ -6,7 +6,7 @@ const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   return (
-    <section className="block">
+    <section className="block" id="about">
       <div className="py-12 md:py-16 lg:py-20 mx-auto w-full max-w-7xl px-5 md:px-10">
         <div
           ref={ref}
@@ -14,7 +14,7 @@ const About = () => {
         >
           <motion.div
             style={{
-              transform: isInView ? "none" : "translateX(-200px)",
+              transform: isInView ? "none" : "translateX(-100px)",
               opacity: isInView ? 1 : 0,
               transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
             }}
@@ -27,7 +27,7 @@ const About = () => {
           </motion.div>
           <motion.div
             style={{
-              transform: isInView ? "none" : "translateX(200px)",
+              transform: isInView ? "none" : "translateX(100px)",
               opacity: isInView ? 1 : 0,
               transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
             }}
