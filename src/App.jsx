@@ -16,16 +16,28 @@ import Shipment from "./Shop Component/Shipment/Shipment";
 import Login from "./component/Log in/Login";
 import PrivateRoute from "./Shop Component/PrivateRoute/PrivateRoute";
 import Inventory from "./Shop Component/Inventory/Inventory";
+import Cart from "./Shop Component/Cart/Cart";
 export const UserCondition = createContext();
 
 function App() {
   const [condition, setCondition] = useState(false);
-  console.log(condition);
+  const [cartLength, setCartLength] = useState(0);
+  const [cartAdded, setCartAdded] = useState([]);
   const [loggedinUser, setLoggedinUser] = useState({});
-  console.log(loggedinUser);
+  console.log(cartLength)
+
   return (
     <UserCondition.Provider
-      value={[condition, setCondition, loggedinUser, setLoggedinUser]}
+      value={[
+        condition,
+        setCondition,
+        loggedinUser,
+        setLoggedinUser,
+        cartAdded,
+        setCartAdded,
+        cartLength,
+        setCartLength,
+      ]}
     >
       <Router>
         <div className="top-0 md:relative sticky bg-white z-50">
@@ -77,6 +89,7 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer></Footer>

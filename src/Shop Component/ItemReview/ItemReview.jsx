@@ -1,16 +1,23 @@
-import { useParams, useNavigate  } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import data from "../../fakeData/products.json";
-import { useState } from "react";
-
+import { useContext, useState } from "react";
+import { UserCondition } from "../../App";
 const ItemReview = () => {
   const [count, setcount] = useState(1);
   const { productkey } = useParams();
   const product = data.find((p) => p.id === productkey);
-  const history = useNavigate()
-  const handleOrder = ()=>{
-    history("/shipment")
-  }
-  console.log(product);
+  const history = useNavigate();
+  const handleOrder = () => {
+    history("/shipment");
+  };
+  const user = useContext(UserCondition);
+  const cartAdded = user[4];
+  const setCartAdded = user[5];
+  const setCartLength = user[7];
+  const handleCart = () => {
+    setCartAdded([...cartAdded, product]);
+  };
+  setCartLength(cartAdded.length);
   return (
     <div className="bg-[#EFF0F5] flex justify-center">
       <div className="bg-white lg:w-[60%] w-[100%] m-8 flex lg:flex-row flex-col">
@@ -133,10 +140,16 @@ const ItemReview = () => {
             </div>
           </div>
           <div className="flex my-8">
-            <button onClick={handleOrder} className="w-[50%] mr-2 rounded py-2 px-4 text-white text-[18px] bg-[#2ABBEB] hover:bg-[#39b0d8] transition-colors">
+            <button
+              onClick={handleOrder}
+              className="w-[50%] mr-2 rounded py-2 px-4 text-white text-[18px] bg-[#2ABBEB] hover:bg-[#39b0d8] transition-colors"
+            >
               Buy Now
             </button>{" "}
-            <button className="w-[50%] mr-2 rounded py-2 px-4 text-white text-[18px] bg-[#F57224] hover:bg-[#da7439] transition-colors">
+            <button
+              onClick={handleCart}
+              className="w-[50%] mr-2 rounded py-2 px-4 text-white text-[18px] bg-[#F57224] hover:bg-[#da7439] transition-colors"
+            >
               Add to Cart
             </button>
           </div>

@@ -51,7 +51,7 @@ const Product = () => {
   ];
 //   console.log(product);
   return (
-    <div className="flex justify-center w-[80%] mx-auto my-4">
+    <div className="flex justify-center w-full md:w-[80%] mx-auto my-4">
       <div className="w-[20%] mt-2 fliterDiv lg:flex flex-col hidden">
         <div className="lg:flex flex-col hidden">
           <h1 className="w-[100%] font-semibold  text-[22px] my-3">Filter </h1>
@@ -122,7 +122,7 @@ const Product = () => {
               <Link
                 to={"/product/"+pd.id}
                 key={pd.id}
-                className="hover:shadow lg:w-[215px] w-[250px] mx-3 mb-6 lg:mb-4 lg:shadow-none shadow"
+                className="hover:shadow lg:w-[215px] w-[40%] sm:w-[250px] mx-3 mb-6 lg:mb-4 lg:shadow-none shadow"
               >
                 <img src={pd.img} alt="" />
                 <div className="p-2">

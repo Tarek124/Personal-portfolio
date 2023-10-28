@@ -58,7 +58,8 @@ const Login = () => {
           newError.error = "";
           newError.photo = false;
           setUser(newError);
-          
+          history("/shipment", { replace: true });
+
           // ...
         })
         .catch((error) => {
@@ -80,7 +81,7 @@ const Login = () => {
           newError.error = "";
           newError.photo = false;
           setUser(newError);
-          history("/shipment", {replace : true});
+          history("/shipment", { replace: true });
           // ...
         })
         .catch((error) => {
@@ -107,7 +108,7 @@ const Login = () => {
           photo: photoURL,
         };
         setUser(signedInUser);
-        // history("/shipment");
+        history("/shipment", { replace: true });
         // ...
       })
       .catch((error) => {
