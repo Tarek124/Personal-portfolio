@@ -9,6 +9,7 @@ const ItemReview = () => {
   const history = useNavigate();
   const handleOrder = () => {
     history("/shipment");
+    setCartAdded([product])
   };
   const user = useContext(UserCondition);
   const cartAdded = user[4];

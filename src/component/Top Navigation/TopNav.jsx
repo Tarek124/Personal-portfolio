@@ -11,7 +11,7 @@ const TopNav = () => {
   const user = useContext(UserCondition);
   const condition = user[1],
     logedInUser = user[2];
-  const icon = logedInUser.photo ?  <img className="w-[30px] rounded-full cursor-pointer" src={logedInUser.photo} alt="" /> : "Log Out"
+  const icon = logedInUser.photo ?  <img className="w-[30px] p-[1px] rounded-full cursor-pointer" src={logedInUser.photo} alt="" /> : "Log Out"
   // console.log(condition);
   return (
     <div className="h-[30px]  text-[12px] sm:text-[16px] flex justify-center">

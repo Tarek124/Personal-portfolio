@@ -3,13 +3,14 @@
 import { useContext, useEffect, useState } from "react";
 import { UserCondition } from "../../App";
 import CartItem from "../CartItem/CartItem";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [AllCheck, setChecked] = useState("");
   const [afterFilter, setafterFilter] = useState([]);
   const item = useContext(UserCondition);
   const cartAdded = item[4];
- 
+  const navigate = useNavigate();
 
   useEffect(() => {
     let filterItem = [...new Set(cartAdded)];
@@ -90,7 +91,18 @@ const Cart = () => {
             <p className="text-[18px] text-orange-500">৳ {subtotal}</p>
           </div>
           <div className="px-3 pb-6">
-            <button className="bg-orange-500 w-full py-2 text-white  ">
+            <button
+              onClick={() => {
+                if (!afterFilter.length == 0) {
+                  navigate("/shipment");
+                } else {
+                  alert(
+                    "Your cart is empty . for Checkout add some items to you cart"
+                  );
+                }
+              }}
+              className="bg-orange-500 w-full py-2 text-white  "
+            >
               PROCEED TO CHECKOUT ({afterFilter.length})
             </button>
           </div>

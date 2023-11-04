@@ -19,11 +19,7 @@ firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
   const [newUser, setNewUser] = useState(true),
-    [user, setUser] = useState({
-      userSignedIn: false,
-      email: "",
-      password: "",
-    }),
+    [user, setUser] = useState({}),
     history = useNavigate(),
     location = useLocation(),
     ContextUser = useContext(UserCondition),
@@ -54,10 +50,15 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          const newError = { ...user };
-          newError.error = "";
-          newError.photo = false;
-          setUser(newError);
+          const { displayName, email } = user;
+          const signedInUser = {
+            name: displayName,
+            email: email,
+            userSignedIn: true,
+            photo: false,
+          };
+          setUser(signedInUser);
+          setLoggedinUser(signedInUser);
           history("/shipment", { replace: true });
 
           // ...
@@ -77,10 +78,15 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          const newError = { ...user };
-          newError.error = "";
-          newError.photo = false;
-          setUser(newError);
+          const { displayName, email } = user;
+          const signedInUser = {
+            name: displayName,
+            email: email,
+            userSignedIn: true,
+            photo: false,
+          };
+          setUser(signedInUser);
+          setLoggedinUser(signedInUser);
           history("/shipment", { replace: true });
           // ...
         })
@@ -107,6 +113,7 @@ const Login = () => {
           userSignedIn: true,
           photo: photoURL,
         };
+        setLoggedinUser(signedInUser);
         setUser(signedInUser);
         history("/shipment", { replace: true });
         // ...
@@ -122,7 +129,6 @@ const Login = () => {
         // ...
       });
   };
-  setLoggedinUser(user);
 
   return (
     <section>

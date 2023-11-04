@@ -24,7 +24,6 @@ function App() {
   const [cartLength, setCartLength] = useState(0);
   const [cartAdded, setCartAdded] = useState([]);
   const [loggedinUser, setLoggedinUser] = useState({});
-  console.log(cartLength)
 
   return (
     <UserCondition.Provider
@@ -40,7 +39,7 @@ function App() {
       ]}
     >
       <Router>
-        <div className="top-0 md:relative sticky bg-white z-50">
+        <div className="top-0 md:relative sticky bg-white z-10">
           <TopNav></TopNav>
           <Navigation></Navigation>
         </div>

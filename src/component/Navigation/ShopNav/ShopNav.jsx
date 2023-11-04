@@ -7,8 +7,8 @@ const ShopNav = () => {
       <Link to="/shop" className="listItem">
         Home
       </Link>
-      <Link to="shipment" className="listItem">
-        Shipment
+      <Link to="inventory" className="listItem">
+        Inventory
       </Link>
       <Link to="cart" className="listItem">
         Cart

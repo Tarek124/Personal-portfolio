@@ -12,7 +12,6 @@ const Navigation = () => {
   const user = useContext(UserCondition);
   const condition = user[0];
   const cartLength = user[6];
-  console.log(cartLength);
   // console.log(condition);
 
   useEffect(() => {
@@ -146,17 +145,17 @@ const Navigation = () => {
               Home
             </Link>
             <Link
-              to={condition ? "/shipment" : "about"}
+              to={condition ? "/inventory" : "about"}
               spy={true}
               smooth={true}
               offset={50}
               duration={500}
               className=" my-4 hover:text-[#272727]"
               onClick={() => {
-                condition && handleNavigate("/shipment");
+                condition && handleNavigate("/inventory");
               }}
             >
-              {condition ? "Shipment" : "About"}
+              {condition ? "Inventory" : "About"}
             </Link>
             <Link
               to={condition ? "cart" : "work"}
